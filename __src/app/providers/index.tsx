@@ -1,6 +1,11 @@
 import { Layout } from "@/shared/types";
 import { Lenis } from "./Lenis";
+import { WrapBalancer } from "./WrapBalancer";
 
 export const Providers = ({ children }: Layout) => {
-  return <Lenis>{children}</Lenis>;
+  return (
+    <Lenis>
+      <WrapBalancer>{children}</WrapBalancer>
+    </Lenis>
+  );
 };
