@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "@/app/styles/index.css";
 import { appTitle, cn } from "@/shared/lib";
 import { interFont } from "./fonts";
+import { Providers } from "@/app/providers";
 
 export const metadata: Metadata = {
   title: appTitle(),
@@ -21,7 +22,9 @@ const RootLayout = ({
   return (
     <html lang="en" className={cn(interFont.variable)}>
       <body className="font-app-fm-inter font-normal text-sm">
-        <main id="main">{children}</main>
+        <Providers>
+          <main id="main">{children}</main>
+        </Providers>
       </body>
     </html>
   );
