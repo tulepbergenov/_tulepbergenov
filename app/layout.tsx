@@ -3,6 +3,8 @@ import "@/app/styles/index.css";
 import { appTitle, cn } from "@/shared/lib";
 import { interFont } from "./fonts";
 import { Providers } from "@/app/providers";
+import { Suspense } from "react";
+import { Cursor } from "@/features/Cursor";
 
 export const metadata: Metadata = {
   title: appTitle(),
@@ -20,10 +22,17 @@ const RootLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <html lang="en" className={cn(interFont.variable)}>
-      <body className="font-app-fm-inter font-normal text-sm">
+    <html
+      lang="en"
+      className={cn("h-full", interFont.variable)}
+      suppressHydrationWarning
+    >
+      <body className="font-fm-inter font-normal antialiased h-full dark:bg-clr-dark rendering-speed dark:text-clr-light text-clr-dark bg-clr-light">
         <Providers>
           <main id="main">{children}</main>
+          <Suspense fallback={null}>
+            <Cursor />
+          </Suspense>
         </Providers>
       </body>
     </html>

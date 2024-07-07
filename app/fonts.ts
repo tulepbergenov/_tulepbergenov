@@ -5,5 +5,5 @@ export const interFont = Inter({
   style: ["normal"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--app-fm-inter",
+  variable: "--fm-inter",
 });

@@ -23,4 +23,8 @@
   .lenis.lenis-smooth iframe {
     pointer-events: none;
   }
+
+  html {
+    color-scheme: light dark;
+  }
 }

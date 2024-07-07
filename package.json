@@ -10,14 +10,20 @@
   },
   "dependencies": {
     "classcat": "^5.0.5",
+    "clsx": "^2.1.1",
+    "gsap": "^3.12.5",
     "lenis": "^1.1.6",
     "next": "14.2.4",
+    "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-icons": "^5.2.1",
     "react-wrap-balancer": "^1.1.1",
     "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.13",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -25,6 +31,7 @@
     "eslint-config-next": "14.2.4",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
+    "tailwindcss-text-rendering": "^1.0.2",
     "typescript": "^5"
   }
 }
