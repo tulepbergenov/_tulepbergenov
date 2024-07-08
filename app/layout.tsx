@@ -30,9 +30,7 @@ const RootLayout = ({
       <body className="font-fm-inter font-normal antialiased h-full dark:bg-clr-dark rendering-speed dark:text-clr-light text-clr-dark bg-clr-light">
         <Providers>
           <main id="main">{children}</main>
-          <Suspense fallback={null}>
-            <Cursor />
-          </Suspense>
+          <Cursor />
         </Providers>
       </body>
     </html>

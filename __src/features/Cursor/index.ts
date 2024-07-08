@@ -1,1 +1,1 @@
-export * from "./Cursor.lazy";
+export * from "./Cursor";
