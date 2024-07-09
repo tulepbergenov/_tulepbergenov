@@ -2,9 +2,10 @@
 
 import { cn } from "@/shared/lib";
 import { gsap } from "gsap";
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { CursorProps } from "./Cursor.type";
 import { useCursorStore } from "@/shared/store";
+import { useTheme } from "next-themes";
 
 const COLORS = ["#c32d27", "#f5c63f", "#457ec4", "#356fdb"];
 
@@ -12,6 +13,12 @@ const lerp = (x: number, y: number, a: number) => x * (1 - a) + y * a;
 
 export const Cursor = ({ className, ...props }: CursorProps) => {
   const { isHovered } = useCursorStore();
+  const { systemTheme, theme } = useTheme();
+  const [isMount, setIsMount] = useState(false);
+
+  const currentTheme = useMemo(() => {
+    return theme === "system" ? systemTheme : theme;
+  }, [theme, systemTheme]);
 
   const SIZE = useMemo(() => (isHovered ? 300 : 30), [isHovered]);
   const DELAY = useMemo(() => (isHovered ? 0.015 : 0.005), [isHovered]);
@@ -64,13 +71,23 @@ export const Cursor = ({ className, ...props }: CursorProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    setIsMount(true);
+  }, []);
+
+  if (!isMount) return null;
+
   return (
     <>
       {COLORS.map((color, i, array) => (
         <div
           key={color}
           className={cn(
-            "fixed pointer-events-none top-0 left-0 rounded-full mix-blend-difference",
+            "fixed pointer-events-none top-0 left-0 rounded-full",
+            {
+              ["mix-blend-difference"]: currentTheme === "dark",
+              ["mix-blend-normal"]: currentTheme === "light",
+            },
             className
           )}
           ref={(ref) => (circles.current[i] = ref) as any}

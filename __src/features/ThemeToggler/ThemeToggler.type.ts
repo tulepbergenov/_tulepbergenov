@@ -1,3 +1,5 @@
 import { ButtonProps } from "@/shared/types";
 
-export type ThemeTogglerProps = ButtonProps;
+export type ThemeTogglerProps = {
+  className?: string;
+};

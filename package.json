@@ -11,6 +11,7 @@
   "dependencies": {
     "classcat": "^5.0.5",
     "clsx": "^2.1.1",
+    "framer-motion": "^11.2.13",
     "gsap": "^3.12.5",
     "lenis": "^1.1.6",
     "next": "14.2.4",
