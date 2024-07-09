@@ -1,10 +1,9 @@
-import type { Metadata, Viewport } from "next";
-import "@/app/styles/index.css";
-import { appTitle, cn } from "@/shared/lib";
-import { interFont } from "./fonts";
 import { Providers } from "@/app/providers";
-import { Suspense } from "react";
+import "@/app/styles/index.css";
 import { Cursor } from "@/features/Cursor";
+import { appTitle, cn } from "@/shared/lib";
+import type { Metadata, Viewport } from "next";
+import { interFont } from "./fonts";
 
 export const metadata: Metadata = {
   title: appTitle(),
